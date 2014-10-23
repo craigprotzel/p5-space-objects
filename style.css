@@ -1,0 +1,31 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-family: 'Inconsolata', 'Helvetica', Geneva, Verdana, Arial, sans-serif;
+	font-size: 16px;
+}
+.msg{
+	position: absolute;
+	width: 80%;
+	font-size: 24px;
+	color: white;
+	text-align: center;
+	margin: 50px 10% 0;
+}
+.big{
+	font-size: 72px;
+}
+
+a#gh-link{
+	text-decoration: none;
+	color: white;
+	position: absolute;
+	top: 5px;
+	right: 30px;
+	font-size: 14px;
+}
+
+a#gh-link:hover{
+	color: aqua;
+}
