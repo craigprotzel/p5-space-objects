@@ -89,6 +89,14 @@ function draw() {
 	}
 }
 
+function touchStarted(){
+	for (var i = 0; i < astros.length; i++){
+		if (astros[i].hovered){
+			astros[i].clicked();
+		}
+	}
+}
+
 function mousePressed(){
 	for (var i = 0; i < astros.length; i++){
 		if (astros[i].hovered){
