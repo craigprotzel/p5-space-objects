@@ -89,6 +89,7 @@ function draw() {
 	}
 }
 
+/*
 function touchStarted(){
 	for (var i = 0; i < astros.length; i++){
 		if (astros[i].hovered){
@@ -96,6 +97,7 @@ function touchStarted(){
 		}
 	}
 }
+*/
 
 function mousePressed(){
 	for (var i = 0; i < astros.length; i++){
@@ -149,6 +151,7 @@ Astronaut.prototype.update = function(){
 	this.x += this.xSpeed;
 	this.y += this.ySpeed;
 	this.checkEdges();
+	this.checkTouchState();
 	this.checkHoverState();
 };
 
@@ -195,19 +198,6 @@ Astronaut.prototype.checkHoverState = function(){
 		return false;
 	}
 
-	//Touch
-	if (touchX > (this.x - this.xWidth/2 - 10) && touchX < (this.x + this.xWidth/2 + 10) &&
-	touchY > (this.y - this.yHeight/2 -10) && touchY < (this.y + this.yHeight/2 + 10)){
-		this.c = this.c_hover;
-		this.hovered = true;
-		return true;
-	}
-	else{
-		this.c = this.c_random;
-		this.hovered = false;
-		return false;
-	}
-
 	/*
 	//Alt approach - use the dist() method, works well with ellipses
 	var mouseDist = dist(mouseX, mouseY, this.x, this.y);
@@ -222,6 +212,21 @@ Astronaut.prototype.checkHoverState = function(){
 		return false;
 	}
 	*/
+};
+
+Astronaut.prototype.checkTouchState = function(){
+	//Touch
+	if (touchX > (this.x - this.xWidth/2 - 10) && touchX < (this.x + this.xWidth/2 + 10) &&
+	touchY > (this.y - this.yHeight/2 -10) && touchY < (this.y + this.yHeight/2 + 10)){
+		this.c = this.c_hover;
+		this.hovered = true;
+		return true;
+	}
+	else{
+		this.c = this.c_random;
+		this.hovered = false;
+		return false;
+	}
 };
 
 Astronaut.prototype.clicked = function(){
