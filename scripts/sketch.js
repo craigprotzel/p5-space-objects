@@ -182,6 +182,7 @@ Astronaut.prototype.checkEdges = function(){
 };
 
 Astronaut.prototype.checkHoverState = function(){
+	//Mouse
 	if (mouseX > (this.x - this.xWidth/2 - 10) && mouseX < (this.x + this.xWidth/2 + 10) &&
 	mouseY > (this.y - this.yHeight/2 -10) && mouseY < (this.y + this.yHeight/2 + 10)){
 		this.c = this.c_hover;
@@ -193,6 +194,20 @@ Astronaut.prototype.checkHoverState = function(){
 		this.hovered = false;
 		return false;
 	}
+
+	//Touch
+	if (touchX > (this.x - this.xWidth/2 - 10) && touchX < (this.x + this.xWidth/2 + 10) &&
+	touchY > (this.y - this.yHeight/2 -10) && touchY < (this.y + this.yHeight/2 + 10)){
+		this.c = this.c_hover;
+		this.hovered = true;
+		return true;
+	}
+	else{
+		this.c = this.c_random;
+		this.hovered = false;
+		return false;
+	}
+
 	/*
 	//Alt approach - use the dist() method, works well with ellipses
 	var mouseDist = dist(mouseX, mouseY, this.x, this.y);
